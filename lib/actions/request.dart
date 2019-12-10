@@ -3,7 +3,9 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 
 class Request {
   final String baseurl;
+
   Request(this.baseurl);
+
   Future<dynamic> request(String host,
       {String method = 'GET',
       dynamic data,

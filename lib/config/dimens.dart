@@ -1,0 +1,1 @@
+///全局尺寸class RDimen{  static const int dimen1 = 1;}

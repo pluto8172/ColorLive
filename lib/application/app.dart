@@ -32,11 +32,11 @@ import 'package:colorlive/pages/tvdetail_page/page.dart';
 import 'package:colorlive/pages/watchlist_page/page.dart';
 import 'package:colorlive/pages/watchlistdetail_page/page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'actions/timeline.dart';
-import 'generated/i18n.dart';
-import 'globalbasestate/state.dart';
-import 'globalbasestate/store.dart';
-import 'pages/moremedia_page/page.dart';
+import '../actions/timeline.dart';
+import '../generated/i18n.dart';
+import '../globalbasestate/state.dart';
+import '../globalbasestate/store.dart';
+import '../pages/moremedia_page/page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:colorlive/pages/detail_page/page.dart' as detail;
@@ -44,7 +44,8 @@ import 'package:colorlive/pages/detail_page/page.dart' as detail;
 Future _init() async {
   if (Platform.isAndroid)
     Map<PermissionGroup, PermissionStatus> permissions =
-        await PermissionHandler().requestPermissions([PermissionGroup.contacts]);
+        await PermissionHandler()
+            .requestPermissions([PermissionGroup.contacts]);
   /*SharedPreferences prefs = await SharedPreferences.getInstance();
   var session = prefs.getString('loginsession');
   String accessToken = prefs.getString('accessTokenV4');
@@ -56,7 +57,6 @@ Future _init() async {
   if (accessToken != null) ApiHelper.accessTokenV4 = accessToken;*/
   setLocaleInfo('zh', TimelineInfoCN());
   setLocaleInfo('en', TimelineInfoEN());
-  setLocaleInfo('Ja', TimelineInfoJA());
 }
 
 Future<Widget> createApp() async {
@@ -157,7 +157,8 @@ Future<Widget> createApp() async {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: I18n.delegate.supportedLocales,
-    localeResolutionCallback: I18n.delegate.resolution(fallback: new Locale("en", "US")),
+    localeResolutionCallback:
+        I18n.delegate.resolution(fallback: new Locale("en", "US")),
     home: routes.buildPage('mainpage', {
       'pages': [
         routes.buildPage('homePage', null),

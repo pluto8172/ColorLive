@@ -11,6 +11,7 @@ import 'package:colorlive/models/enums/media_type.dart';
 
 class BaseApi {
   static Request _http = Request('https://www.fluttermovie.top/api');
+
   static Future<dynamic> updateUser(String uid, String email, String photoUrl,
       String userName, String phone) async {
     String _url = '/Users';
