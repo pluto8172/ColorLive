@@ -64,7 +64,7 @@ Future _onLoadMore(Action action, Context<DiscoverPageState> ctx) async {
   VideoListModel r;
   if (ctx.state.filterState.isMovie)
     r = await ApiHelper.getMovieDiscover(
-        page: ctx.state.videoListModel.page + 1,
+        page: ctx.state.videoListModel.page+1,
         sortBy: ctx.state.selectedSort,
         withGenres: genresIds.length > 0 ? genresIds.join(',') : null,
         withKeywords: ctx.state.filterState.keywords);

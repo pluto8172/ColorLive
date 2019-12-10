@@ -1,12 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:colorlive/pages/watchlistdetail_page/page.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:colorlive/actions/apihelper.dart';
-import 'package:colorlive/actions/base_api.dart';
-import 'package:colorlive/customwidgets/custom_stfstate.dart';
-import 'package:colorlive/pages/watchlistdetail_page/page.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -26,12 +23,12 @@ Future _onInit(Action action, Context<WatchlistPageState> ctx) async {
   ctx.state.animationController =
       AnimationController(vsync: ticker, duration: Duration(milliseconds: 300));
   ctx.state.swiperController = SwiperController();
-  if (ctx.state.user != null) {
+  /*if (ctx.state.user != null) {
     final movie = await BaseApi.getFavorite(ctx.state.user.uid, 'movie');
     if (movie != null) ctx.dispatch(WatchlistPageActionCreator.setMovie(movie));
     final tv = await BaseApi.getFavorite(ctx.state.user.uid, 'tv');
     if (tv != null) ctx.dispatch(WatchlistPageActionCreator.setTVShow(tv));
-  }
+  }*/
 }
 
 void _onDispose(Action action, Context<WatchlistPageState> ctx) {

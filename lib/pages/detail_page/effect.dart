@@ -1,18 +1,17 @@
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/apihelper.dart';
 import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/customwidgets/custom_stfstate.dart';
 import 'package:colorlive/customwidgets/gallery_photoview_wrapper.dart';
-import 'package:colorlive/globalbasestate/store.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/enums/media_type.dart';
 import 'package:colorlive/pages/peopledetail_page/page.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -50,14 +49,14 @@ Future _onInit(Action action, Context<MovieDetailPageState> ctx) async {
   var images = await ApiHelper.getMovieImages(_id);
   if (images != null)
     ctx.dispatch(MovieDetailPageActionCreator.onSetImages(images));
-  final _user = GlobalStore.store.getState().user;
+  /*final _user = GlobalStore.store.getState().user;
   if (_user != null) {
     var accountstate = await BaseApi.getAccountState(
         _user.uid, ctx.state.mediaId, MediaType.movie);
     if (accountstate != null)
       ctx.dispatch(
           MovieDetailPageActionCreator.onSetAccountState(accountstate));
-  }
+  }*/
 }
 
 void _onDispose(Action action, Context<MovieDetailPageState> ctx) {

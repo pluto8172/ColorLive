@@ -1,20 +1,17 @@
 import 'dart:math';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
-import 'package:colorlive/globalbasestate/store.dart';
 import 'package:colorlive/models/base_api_model/account_state.dart';
 import 'package:colorlive/models/creditsmodel.dart';
 import 'package:colorlive/models/enums/theme_color.dart';
-import 'package:colorlive/models/firebase/firebase_accountstate.dart';
 import 'package:colorlive/models/imagemodel.dart';
 import 'package:colorlive/models/keyword.dart';
 import 'package:colorlive/models/review.dart';
 import 'package:colorlive/models/tvdetail.dart';
 import 'package:colorlive/models/videolist.dart';
 import 'package:colorlive/models/videomodel.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 class TVDetailPageState
@@ -65,8 +62,8 @@ class TVDetailPageState
   @override
   Locale locale;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 TVDetailPageState initState(Map<String, dynamic> args) {
@@ -98,7 +95,7 @@ TVDetailPageState initState(Map<String, dynamic> args) {
   state.videomodel = new VideoModel.fromParams(results: List<VideoResult>());
   state.accountState = AccountState.fromParams(
       id: 0,
-      uid: GlobalStore.store.getState().user?.uid,
+      uid: '123456',
       mediaId: state.tvid,
       favorite: false,
       watchlist: false,

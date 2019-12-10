@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
 import 'package:colorlive/models/enums/streamlink_type.dart';
+import 'package:fish_redux/fish_redux.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -44,13 +43,13 @@ AddLinkPageState _setStreamLink(AddLinkPageState state, Action action) {
 }
 
 AddLinkPageState _setLinkData(AddLinkPageState state, Action action) {
-  final DocumentSnapshot d = action.payload;
   final AddLinkPageState newState = state.clone();
+  /*final DocumentSnapshot d = action.payload;
   newState.linkData = d;
   newState.linkName = d['linkName'];
   newState.streamLink = d['streamLink'];
   newState.streamLinkType = d['streamLinkType'] == 'YouTube'
       ? StreamLinkType.youtube
-      : StreamLinkType.other;
+      : StreamLinkType.other;*/
   return newState;
 }

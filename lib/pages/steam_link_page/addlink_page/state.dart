@@ -1,12 +1,10 @@
 import 'dart:ui';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/enums/media_type.dart';
 import 'package:colorlive/models/enums/streamlink_type.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 
 class AddLinkPageState implements GlobalBaseState, Cloneable<AddLinkPageState> {
   String name;
@@ -15,7 +13,7 @@ class AddLinkPageState implements GlobalBaseState, Cloneable<AddLinkPageState> {
   String photoUrl;
   MediaType type;
   String linkName;
-  DocumentSnapshot linkData;
+  //DocumentSnapshot linkData;
   StreamLinkType streamLinkType;
 
   TextEditingController linkNameTextController;
@@ -23,14 +21,14 @@ class AddLinkPageState implements GlobalBaseState, Cloneable<AddLinkPageState> {
   @override
   AddLinkPageState clone() {
     return AddLinkPageState()
-      ..user = user
+     // ..user = user
       ..name = name
       ..photoUrl = photoUrl
       ..id = id
       ..streamLink = streamLink
       ..type = type
       ..linkName = linkName
-      ..linkData = linkData
+     // ..linkData = linkData
       ..streamLinkType = streamLinkType
       ..linkNameTextController = linkNameTextController
       ..streamLinkTextController = streamLinkTextController;
@@ -42,8 +40,8 @@ class AddLinkPageState implements GlobalBaseState, Cloneable<AddLinkPageState> {
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 AddLinkPageState initState(Map<String, dynamic> args) {

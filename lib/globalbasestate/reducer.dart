@@ -1,9 +1,7 @@
 import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
-import 'package:colorlive/generated/i18n.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -13,7 +11,6 @@ Reducer<GlobalState> buildReducer() {
     <Object, Reducer<GlobalState>>{
       GlobalAction.changeThemeColor: _onchangeThemeColor,
       GlobalAction.changeLocale: _onChangeLocale,
-      GlobalAction.setUser: _onSetUser,
     },
   );
 }
@@ -36,7 +33,4 @@ GlobalState _onChangeLocale(GlobalState state, Action action) {
   return state.clone()..locale = l;
 }
 
-GlobalState _onSetUser(GlobalState state, Action action) {
-  final FirebaseUser user = action.payload;
-  return state.clone()..user = user;
-}
+

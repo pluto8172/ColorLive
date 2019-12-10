@@ -1,10 +1,8 @@
 import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:colorlive/globalbasestate/state.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:colorlive/globalbasestate/state.dart';
-import 'package:colorlive/models/videolist.dart';
 
 class AccountPageState implements GlobalBaseState, Cloneable<AccountPageState> {
   String name;
@@ -25,8 +23,7 @@ class AccountPageState implements GlobalBaseState, Cloneable<AccountPageState> {
       ..acountIdV4 = acountIdV4
       ..themeIndex = themeIndex
       ..locale = locale
-      ..themeColor = themeColor
-      ..user = user;
+      ..themeColor = themeColor;
   }
 
   @override
@@ -34,9 +31,6 @@ class AccountPageState implements GlobalBaseState, Cloneable<AccountPageState> {
 
   @override
   Color themeColor;
-
-  @override
-  FirebaseUser user;
 }
 
 AccountPageState initState(Map<String, dynamic> args) {

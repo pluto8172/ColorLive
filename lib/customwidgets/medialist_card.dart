@@ -38,7 +38,7 @@ class MediaListCardDialogState extends State<MediaListCardDialog> {
   Future<UserListModel> _userList;
   int _page;
 
-  final _user = GlobalStore.store.getState().user;
+  final _user = null;
 
   initUserlist() {
     if (_user != null)

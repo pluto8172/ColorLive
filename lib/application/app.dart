@@ -94,18 +94,14 @@ Future<Widget> createApp() async {
     },
     visitor: (String path, Page<Object, dynamic> page) {
       if (page.isTypeof<GlobalBaseState>()) {
-        page.connectExtraStore<GlobalState>(GlobalStore.store,
-            (Object pagestate, GlobalState appState) {
+        page.connectExtraStore<GlobalState>(GlobalStore.store, (Object pagestate, GlobalState appState) {
           final GlobalBaseState p = pagestate;
-          if (p.themeColor != appState.themeColor ||
-              p.locale != appState.locale ||
-              p.user != appState.user) {
+          if (p.themeColor != appState.themeColor || p.locale != appState.locale ){
             if (pagestate is Cloneable) {
               final Object copy = pagestate.clone();
               final GlobalBaseState newState = copy;
               newState.themeColor = appState.themeColor;
               newState.locale = appState.locale;
-              newState.user = appState.user;
               //I18n.onLocaleChanged(appState.locale);
               return newState;
             }

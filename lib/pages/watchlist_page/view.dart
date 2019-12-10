@@ -1,19 +1,14 @@
+import 'dart:math' as math;
+
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/imageurl.dart';
-import 'package:colorlive/customwidgets/hero_dialog_route.dart';
-import 'package:colorlive/customwidgets/watchlistdetail.dart';
 import 'package:colorlive/generated/i18n.dart';
 import 'package:colorlive/models/base_api_model/user_media.dart';
-import 'package:colorlive/models/enums/genres.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/videolist.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'dart:math' as math;
 
 import 'action.dart';
 import 'state.dart';

@@ -1,7 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
 import 'package:colorlive/models/base_api_model/base_movie.dart';
 import 'package:colorlive/models/base_api_model/base_tvshow.dart';
+import 'package:fish_redux/fish_redux.dart';
 
 import 'action.dart';
 import 'state.dart';

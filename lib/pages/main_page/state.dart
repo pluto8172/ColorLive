@@ -1,7 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:colorlive/globalbasestate/state.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:colorlive/globalbasestate/state.dart';
 
 
 class MainPageState implements GlobalBaseState, Cloneable<MainPageState> {
@@ -20,8 +19,8 @@ class MainPageState implements GlobalBaseState, Cloneable<MainPageState> {
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+ /* @override
+  FirebaseUser user;*/
 }
 
 MainPageState initState(Map<String, dynamic> args) {

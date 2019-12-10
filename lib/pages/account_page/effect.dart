@@ -1,11 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:colorlive/customwidgets/custom_stfstate.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
-import 'package:colorlive/actions/apihelper.dart';
-import 'package:colorlive/customwidgets/custom_stfstate.dart';
-import 'package:colorlive/globalbasestate/action.dart';
-import 'package:colorlive/globalbasestate/store.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -21,15 +17,15 @@ Effect<AccountPageState> buildEffect() {
   });
 }
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
+
 void _onAction(Action action, Context<AccountPageState> ctx) {}
 
 Future _onLogin(Action action, Context<AccountPageState> ctx) async {
   var r = (await Navigator.of(ctx.context).pushNamed('loginpage')) as Map;
   if (r['s'] == true) {
     String name = r['name'];
-    String avatar = ctx.state.user?.photoUrl;
-    bool islogin = ctx.state.user != null;
+    String avatar = "";
+    bool islogin = false;
     ctx.dispatch(AccountPageActionCreator.onInit(name, avatar, islogin));
   }
 }
@@ -41,9 +37,9 @@ Future _onInit(Action action, Context<AccountPageState> ctx) async {
         vsync: ticker, duration: Duration(milliseconds: 1000));
   }
   //final FirebaseUser currentUser = await _auth.currentUser();
-  String name = ctx.state.user?.displayName;
-  String avatar = ctx.state.user?.photoUrl;
-  bool islogin = ctx.state.user != null;
+  String name = "张三";
+  String avatar = "";
+  bool islogin = false;
   ctx.dispatch(AccountPageActionCreator.onInit(name, avatar, islogin));
 }
 
@@ -59,14 +55,8 @@ Future _onLogout(Action action, Context<AccountPageState> ctx) async {
   //var q = await ApiHelper.deleteSession();
   //if (q) await _onInit(action, ctx);
 
-  final FirebaseUser currentUser = await _auth.currentUser();
-  if (currentUser != null) {
-    try {
-      _auth.signOut();
-      GlobalStore.store.dispatch(GlobalActionCreator.setUser(null));
-    } on Exception catch (e) {}
     await _onInit(action, ctx);
-  }
+
 }
 
 Future _navigatorPush(Action action, Context<AccountPageState> ctx) async {

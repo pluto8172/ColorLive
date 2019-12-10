@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/models/enums/media_type.dart';
-import 'package:colorlive/models/enums/streamlink_type.dart';
+import 'package:fish_redux/fish_redux.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -17,7 +15,7 @@ Effect<AddLinkPageState> buildEffect() {
 void _onAction(Action action, Context<AddLinkPageState> ctx) {}
 
 void _onSubmit(Action action, Context<AddLinkPageState> ctx) {
-  if (ctx.state.user != null) {
+  /*if (ctx.state.user != null) {
     final String mtype = ctx.state.type == MediaType.movie ? 'Movie' : 'TV';
     final String streamType = ctx.state.streamLinkType == StreamLinkType.youtube
         ? 'YouTube'
@@ -62,12 +60,12 @@ void _onSubmit(Action action, Context<AddLinkPageState> ctx) {
       });
     }
     Navigator.of(ctx.context).pop();
-  }
+  }*/
 }
 
 Future _onInit(Action action, Context<AddLinkPageState> ctx) async {
   final String mtype = ctx.state.type == MediaType.movie ? 'Movie' : 'TV';
-  Firestore.instance
+  /*Firestore.instance
       .collection('StreamLinks')
       .document('$mtype${ctx.state.id}')
       .collection('Link')
@@ -79,5 +77,5 @@ Future _onInit(Action action, Context<AddLinkPageState> ctx) async {
         TextEditingController(text: ctx.state.linkName);
     ctx.state.streamLinkTextController =
         TextEditingController(text: ctx.state.streamLink);
-  });
+  });*/
 }

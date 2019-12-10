@@ -1,13 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:gzx_dropdown_menu/gzx_dropdown_menu.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/discoversorttype.dart';
 import 'package:colorlive/models/sortcondition.dart';
 import 'package:colorlive/models/videolist.dart';
 import 'package:colorlive/pages/discover_page/components/filter_component/state.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:gzx_dropdown_menu/gzx_dropdown_menu.dart';
 
 class DiscoverPageState
     implements GlobalBaseState, Cloneable<DiscoverPageState> {
@@ -42,8 +41,6 @@ class DiscoverPageState
   @override
   Locale locale;
 
-  @override
-  FirebaseUser user;
 }
 
 DiscoverPageState initState(Map<String, dynamic> args) {

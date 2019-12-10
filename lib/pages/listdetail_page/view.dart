@@ -1,9 +1,6 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/imageurl.dart';
 import 'package:colorlive/customwidgets/share_card.dart';
@@ -11,7 +8,8 @@ import 'package:colorlive/customwidgets/shimmercell.dart';
 import 'package:colorlive/models/base_api_model/user_list_detail.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
 import 'package:colorlive/models/sortcondition.dart';
-import 'package:colorlive/models/videolist.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'action.dart';
@@ -255,8 +253,7 @@ Widget buildView(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(Adapt.px(40)),
                           image: DecorationImage(
-                              image: CachedNetworkImageProvider(
-                                  state.user.photoUrl ?? ''))),
+                              image: CachedNetworkImageProvider(''))),
                     ),
                     SizedBox(
                       height: Adapt.px(10),
@@ -273,8 +270,7 @@ Widget buildView(
                     ),
                     SizedBox(
                       width: Adapt.px(130),
-                      child: Text(
-                        state.user.displayName ?? '',
+                      child: Text('',
                         style: TextStyle(color: Colors.white),
                       ),
                     )
@@ -362,8 +358,7 @@ Widget buildView(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(Adapt.px(50)),
                           image: DecorationImage(
-                              image: CachedNetworkImageProvider(
-                                  state.user.photoUrl ?? ''))),
+                              image: CachedNetworkImageProvider(''))),
                     ),
                     SizedBox(
                       width: Adapt.px(20),
@@ -383,8 +378,7 @@ Widget buildView(
                         ),
                         SizedBox(
                           width: Adapt.px(200),
-                          child: Text(
-                            state.user.displayName ?? '',
+                          child: Text('',
                             style: TextStyle(color: Colors.white),
                           ),
                         )

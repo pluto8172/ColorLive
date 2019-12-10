@@ -1,14 +1,12 @@
 import 'package:chewie/chewie.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/customwidgets/custom_video_controls.dart';
 import 'package:colorlive/models/base_api_model/movie_stream_link.dart';
-import 'package:colorlive/models/enums/streamlink_type.dart';
-import 'package:colorlive/models/firebase/firebase_streamlink.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -74,7 +72,7 @@ void _addComment(Action action, Context<LiveStreamPageState> ctx) {
   ctx.state.commentController.clear();
   ctx.state.commentFocusNode.unfocus();
   final String comment = action.payload ?? '';
-  if (ctx.state.user != null && comment != '')
+  /*if (ctx.state.user != null && comment != '')
     Firestore.instance
         .collection('StreamLinks')
         .document('Movie${ctx.state.id}')
@@ -88,7 +86,7 @@ void _addComment(Action action, Context<LiveStreamPageState> ctx) {
       'comment': comment
     }).then((d) {
       ctx.state.comment = null;
-    });
+    });*/
 }
 
 void _onInit(Action action, Context<LiveStreamPageState> ctx) {

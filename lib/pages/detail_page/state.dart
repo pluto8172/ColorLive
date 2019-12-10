@@ -1,12 +1,9 @@
+import 'package:colorlive/models/base_api_model/account_state.dart';
+import 'package:colorlive/models/imagemodel.dart';
+import 'package:colorlive/models/moviedetail.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:colorlive/globalbasestate/store.dart';
-import 'package:colorlive/models/base_api_model/account_state.dart';
-import 'package:colorlive/models/firebase/firebase_accountstate.dart';
-import 'package:colorlive/models/imagemodel.dart';
-import 'package:colorlive/models/media_accountstatemodel.dart';
-import 'package:colorlive/models/moviedetail.dart';
 
 class MovieDetailPageState implements Cloneable<MovieDetailPageState> {
   GlobalKey<ScaffoldState> scaffoldkey;
@@ -43,7 +40,7 @@ MovieDetailPageState initState(Map<String, dynamic> args) {
   state.imagesmodel = ImageModel.fromParams(backdrops: [], posters: []);
   state.accountState = AccountState.fromParams(
       id: 0,
-      uid: GlobalStore.store.getState().user?.uid,
+      uid: '123',
       mediaId: state.mediaId,
       favorite: false,
       watchlist: false,

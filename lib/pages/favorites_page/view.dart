@@ -2,20 +2,18 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:intl/intl.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/imageurl.dart';
 import 'package:colorlive/customwidgets/shimmercell.dart';
 import 'package:colorlive/generated/i18n.dart';
 import 'package:colorlive/models/base_api_model/user_media.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/videolist.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'action.dart';

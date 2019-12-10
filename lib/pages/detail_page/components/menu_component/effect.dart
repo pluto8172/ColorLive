@@ -1,10 +1,10 @@
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/actions/apihelper.dart';
 import 'package:colorlive/actions/base_api.dart';
-import 'package:colorlive/globalbasestate/store.dart';
 import 'package:colorlive/models/base_api_model/user_media.dart';
 import 'package:colorlive/models/enums/media_type.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
+
 import '../../action.dart';
 import 'action.dart';
 import 'state.dart';
@@ -32,7 +32,7 @@ void _addStreamLink(Action action, Context<MenuState> ctx) async {
 
 void _setFirebaseFavorite(Action action, Context<MenuState> ctx) async {
   final bool _isFavorite = ctx.state.accountState.favorite;
-  final user = GlobalStore.store.getState().user;
+  final user = null;
   if (user != null) {
     ctx.dispatch(MenuActionCreator.updateFavorite(!_isFavorite));
     if (_isFavorite)
@@ -58,7 +58,7 @@ void _setFirebaseFavorite(Action action, Context<MenuState> ctx) async {
 }
 
 Future _setRating(Action action, Context<MenuState> ctx) async {
-  final user = GlobalStore.store.getState().user;
+  final user = null;
   if (user != null) {
     ctx.dispatch(MenuActionCreator.updateRating(action.payload));
     BaseApi.updateAccountState(ctx.state.accountState);
@@ -78,7 +78,7 @@ Future _setFavorite(Action action, Context<MenuState> ctx) async {
 
 Future _setWatchlist(Action action, Context<MenuState> ctx) async {
   final bool _isWatchlist = ctx.state.accountState.watchlist;
-  final user = GlobalStore.store.getState().user;
+  final user = null;
   if (user != null) {
     ctx.dispatch(MenuActionCreator.updateWatctlist(!_isWatchlist));
     if (_isWatchlist)

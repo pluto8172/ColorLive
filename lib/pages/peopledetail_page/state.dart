@@ -1,12 +1,11 @@
 import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/widgets.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/combinedcredits.dart';
 import 'package:colorlive/models/peopledetail.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/widgets.dart';
 
 class PeopleDetailPageState
     implements GlobalBaseState, Cloneable<PeopleDetailPageState> {
@@ -42,8 +41,8 @@ class PeopleDetailPageState
   @override
   Locale locale;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 PeopleDetailPageState initState(Map<String, dynamic> args) {

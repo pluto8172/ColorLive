@@ -1,18 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/widgets.dart' hide Action;
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:colorlive/actions/apihelper.dart';
-import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/actions/pop_result.dart';
 import 'package:colorlive/customwidgets/custom_stfstate.dart';
-import 'package:colorlive/globalbasestate/action.dart';
-import 'package:colorlive/globalbasestate/store.dart';
 import 'package:colorlive/pages/register_page/page.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/widgets.dart' hide Action;
+
 import 'action.dart';
 import 'state.dart';
-import 'package:toast/toast.dart';
 
 Effect<LoginPageState> buildEffect() {
   return combineEffects(<Object, Effect<LoginPageState>>{
@@ -26,7 +19,7 @@ Effect<LoginPageState> buildEffect() {
   });
 }
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
+//final FirebaseAuth _auth = FirebaseAuth.instance;
 void _onInit(Action action, Context<LoginPageState> ctx) {
   ctx.state.accountFocusNode = FocusNode();
   ctx.state.pwdFocusNode = FocusNode();
@@ -52,21 +45,19 @@ void _onDispose(Action action, Context<LoginPageState> ctx) {
 void _onAction(Action action, Context<LoginPageState> ctx) {}
 
 Future _onLoginClicked(Action action, Context<LoginPageState> ctx) async {
-  AuthResult result;
+  //AuthResult result;
   ctx.state.submitAnimationController.forward();
-  if (ctx.state.account != '' && ctx.state.pwd != '') {
+  /*if (ctx.state.account != '' && ctx.state.pwd != '') {
     //result = await ApiHelper.createSessionWithLogin(/ctx.state.account, ctx.state.pwd);
     try {
-      result = await _auth.signInWithEmailAndPassword(
-          email: ctx.state.account, password: ctx.state.pwd);
+      result = await _auth.signInWithEmailAndPassword(email: ctx.state.account, password: ctx.state.pwd);
     } on Exception catch (e) {
       Toast.show(e.toString(), ctx.context, duration: 3, gravity: Toast.BOTTOM);
       ctx.state.submitAnimationController.reverse();
     }
   }
   if (result?.user == null) {
-    Toast.show("Account verification required", ctx.context,
-        duration: 3, gravity: Toast.BOTTOM);
+    Toast.show("Account verification required", ctx.context, duration: 3, gravity: Toast.BOTTOM);
     ctx.state.submitAnimationController.reverse();
   } else {
     var user = result?.user;
@@ -74,7 +65,7 @@ Future _onLoginClicked(Action action, Context<LoginPageState> ctx) async {
     BaseApi.updateUser(user.uid, user.email, user.photoUrl, user.displayName,
         user.phoneNumber);
     Navigator.of(ctx.context).pop({'s': true, 'name': user.displayName});
-  }
+  }*/
 }
 
 Future _onSignUp(Action action, Context<LoginPageState> ctx) async {
@@ -100,17 +91,15 @@ Future _onSignUp(Action action, Context<LoginPageState> ctx) async {
 
 void _onGoogleSignIn(Action action, Context<LoginPageState> ctx) async {
   ctx.state.submitAnimationController.forward();
-  try {
+  /*try {
     GoogleSignIn _googleSignIn = GoogleSignIn();
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
     final AuthCredential credential = GoogleAuthProvider.getCredential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    final FirebaseUser user =
-        (await _auth.signInWithCredential(credential)).user;
+    final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
     assert(user.email != null);
     assert(user.displayName != null);
     assert(!user.isAnonymous);
@@ -131,5 +120,5 @@ void _onGoogleSignIn(Action action, Context<LoginPageState> ctx) async {
   } on Exception catch (e) {
     ctx.state.submitAnimationController.reverse();
     Toast.show(e.toString(), ctx.context, duration: 5, gravity: Toast.BOTTOM);
-  }
+  }*/
 }

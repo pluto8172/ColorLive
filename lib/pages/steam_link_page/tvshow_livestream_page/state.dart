@@ -1,11 +1,10 @@
 import 'dart:ui';
 
 import 'package:chewie/chewie.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/base_api_model/tvshow_stream_link.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TvShowLiveStreamPageState
@@ -37,8 +36,8 @@ class TvShowLiveStreamPageState
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 TvShowLiveStreamPageState initState(Map<String, dynamic> args) {

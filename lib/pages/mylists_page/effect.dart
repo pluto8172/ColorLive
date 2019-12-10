@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
-import 'package:colorlive/actions/apihelper.dart';
 import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/customwidgets/custom_stfstate.dart';
 import 'package:colorlive/models/base_api_model/user_list.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
+
 import 'action.dart';
 import 'state.dart';
 
@@ -28,10 +27,10 @@ Future _onInit(Action action, Context<MyListsPageState> ctx) async {
   ctx.state.cellAnimationController = AnimationController(
       vsync: ticker, duration: Duration(milliseconds: 1000));
   ctx.state.scrollController = ScrollController(keepScrollOffset: false);
-  if (ctx.state.user != null) {
+  /*if (ctx.state.user != null) {
     final data = BaseApi.getUserList(ctx.state.user.uid);
     ctx.dispatch(MyListsPageActionCreator.setList(data));
-  }
+  }*/
 }
 
 void _onDispose(Action action, Context<MyListsPageState> ctx) {

@@ -1,11 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/models/enums/media_type.dart';
 import 'package:colorlive/models/sortcondition.dart';
 import 'package:colorlive/pages/detail_page/page.dart';
 import 'package:colorlive/pages/tvdetail_page/page.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
+
 import 'action.dart';
 import 'state.dart';
 

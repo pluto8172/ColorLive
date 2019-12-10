@@ -1,11 +1,10 @@
 import 'dart:ui';
 
 import 'package:chewie/chewie.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/base_api_model/movie_stream_link.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -34,7 +33,7 @@ class LiveStreamPageState
       ..rated = rated
       ..rateCount = rateCount
       ..releaseDate = releaseDate
-      ..user = user
+     // ..user = user
       ..streamLinks = streamLinks
       ..comment = comment
       ..streamAddress = streamAddress
@@ -52,8 +51,8 @@ class LiveStreamPageState
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 LiveStreamPageState initState(Map<String, dynamic> args) {

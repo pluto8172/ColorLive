@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fish_redux/fish_redux.dart';
 
 import 'action.dart';
@@ -19,8 +18,8 @@ TestPageState _onAction(TestPageState state, Action action) {
 }
 
 TestPageState _setData(TestPageState state, Action action) {
-  final Stream<QuerySnapshot> d = action.payload;
+  //final Stream<QuerySnapshot> d = action.payload;
   final TestPageState newState = state.clone();
-  newState.testData = d;
+  //newState.testData = d;
   return newState;
 }

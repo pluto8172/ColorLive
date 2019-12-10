@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/base_api_model/user_list.dart';
 import 'package:colorlive/models/base_api_model/user_list_detail.dart';
 import 'package:colorlive/models/enums/list_sort_type.dart';
 import 'package:colorlive/models/sortcondition.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 
 class ListDetailPageState
     implements GlobalBaseState, Cloneable<ListDetailPageState> {
@@ -25,8 +23,7 @@ class ListDetailPageState
       ..sortBy = sortBy
       ..sortType = sortType
       ..listItems = listItems
-      ..scrollController = scrollController
-      ..user = user;
+      ..scrollController = scrollController;
   }
 
   @override
@@ -34,9 +31,6 @@ class ListDetailPageState
 
   @override
   Color themeColor;
-
-  @override
-  FirebaseUser user;
 }
 
 ListDetailPageState initState(Map<String, dynamic> args) {

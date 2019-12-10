@@ -1,18 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chewie/chewie.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:common_utils/common_utils.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/customwidgets/shimmercell.dart';
 import 'package:colorlive/customwidgets/sliverappbar_delegate.dart';
-import 'package:colorlive/models/enums/streamlink_type.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-import 'dart:ui' as ui;
 
 import 'action.dart';
 import 'state.dart';
@@ -222,8 +217,7 @@ Widget buildView(
                     shape: BoxShape.circle,
                     color: Colors.grey,
                     image: DecorationImage(
-                        image: CachedNetworkImageProvider(
-                            state?.user?.photoUrl ?? ''))),
+                        image: CachedNetworkImageProvider(''))),
               ),
               SizedBox(width: Adapt.px(30)),
               Container(
@@ -264,14 +258,14 @@ Widget buildView(
     );
   }
 
-  Widget _buildCommentCell(DocumentSnapshot d) {
-    Timestamp timestamp = d['createTime'];
-    var date = DateTime.fromMillisecondsSinceEpoch(timestamp.seconds * 1000);
+  Widget _buildCommentCell() {
+   /*// Timestamp timestamp = d['createTime'];
+   // var date = DateTime.fromMillisecondsSinceEpoch(timestamp.seconds * 1000);
     String timeline = TimelineUtil.format(
       date.millisecondsSinceEpoch,
       locTimeMillis: DateTime.now().millisecondsSinceEpoch,
       locale: ui.window.locale.languageCode,
-    );
+    );*/
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -285,16 +279,16 @@ Widget buildView(
                 color: Colors.grey,
                 image: DecorationImage(
                     image:
-                        CachedNetworkImageProvider(d['userPhotoUrl'] ?? ''))),
+                        CachedNetworkImageProvider(''))),
           ),
-          title: Text(d['userName']),
-          subtitle: Text(timeline),
+          title: Text('userName'),
+          subtitle: Text('hhh'),
           trailing: Icon(Icons.more_vert),
         ),
         Padding(
           padding: EdgeInsets.only(left: Adapt.px(140), right: Adapt.px(30)),
           child: Text(
-            d['comment'],
+           'comment',
             style: TextStyle(fontSize: Adapt.px(30)),
           ),
         ),
@@ -307,7 +301,7 @@ Widget buildView(
               SizedBox(width: Adapt.px(10)),
               Container(
                 width: Adapt.px(100),
-                child: Text(d['like'].toString()),
+                child: Text('like'),
               ),
               Icon(Icons.thumb_down, color: Colors.grey),
             ],
@@ -319,13 +313,14 @@ Widget buildView(
   }
 
   Widget _buildCommentsList() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance
+    return Container();
+   /* return StreamBuilder<>(
+      *//*stream: Firestore.instance
           .collection('StreamLinks')
           .document('Movie${state.id}')
           .collection('Comments')
           .orderBy('createTime', descending: true)
-          .snapshots(),
+          .snapshots(),*//*
       builder: (_, snapshot) {
         if (!snapshot.hasData)
           return SliverToBoxAdapter(
@@ -341,7 +336,7 @@ Widget buildView(
               snapshot.data.documents.map(_buildCommentCell).toList()),
         );
       },
-    );
+    );*/
   }
 
   Widget _buildBody() {

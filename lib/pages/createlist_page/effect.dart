@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+
 import 'action.dart';
 import 'state.dart';
 
@@ -22,7 +22,7 @@ void _onInit(Action action, Context<CreateListPageState> ctx) {
 }
 
 void _submit(Action action, Context<CreateListPageState> ctx) {
-  if (ctx.state.user != null) {
+  /*if (ctx.state.user != null) {
     if (ctx.state.listData != null)
       ctx.state.listData.reference.updateData({
         'description': ctx.state.description,
@@ -30,7 +30,7 @@ void _submit(Action action, Context<CreateListPageState> ctx) {
         'updateDateTime': DateTime.now(),
       });
     else
-      Firestore.instance
+     *//* Firestore.instance
           .collection("MyList")
           .document(ctx.state.user.uid)
           .collection('List')
@@ -45,7 +45,7 @@ void _submit(Action action, Context<CreateListPageState> ctx) {
         'totalRated': 0.0,
         'runTime': 0,
         'revenue': 0
-      });
+      });*//*
     Navigator.of(ctx.context).pop();
-  }
+  }*/
 }

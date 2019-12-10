@@ -1,17 +1,15 @@
 import 'dart:ui';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
 import 'package:colorlive/globalbasestate/state.dart';
+import 'package:fish_redux/fish_redux.dart';
 
 class TestPageState implements GlobalBaseState, Cloneable<TestPageState> {
-  Stream<QuerySnapshot> testData;
+  //Stream<QuerySnapshot> testData;
 
   @override
   TestPageState clone() {
     return TestPageState()
-      ..testData = testData
+      //..testData = testData
       ..themeColor = themeColor
       ..locale = locale;
   }
@@ -22,8 +20,8 @@ class TestPageState implements GlobalBaseState, Cloneable<TestPageState> {
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+ /* @override
+  FirebaseUser user;*/
 }
 
 TestPageState initState(Map<String, dynamic> args) {

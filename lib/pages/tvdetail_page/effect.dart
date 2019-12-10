@@ -1,19 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:colorlive/actions/apihelper.dart';
+import 'package:colorlive/actions/base_api.dart';
+import 'package:colorlive/customwidgets/custom_stfstate.dart';
+import 'package:colorlive/customwidgets/gallery_photoview_wrapper.dart';
+import 'package:colorlive/models/enums/imagesize.dart';
+import 'package:colorlive/models/enums/media_type.dart';
+import 'package:colorlive/models/imagemodel.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter/widgets.dart' hide Action;
-import 'package:colorlive/actions/Adapt.dart';
-import 'package:colorlive/actions/apihelper.dart';
-import 'package:colorlive/actions/base_api.dart';
-import 'package:colorlive/actions/imageurl.dart';
-import 'package:colorlive/customwidgets/custom_stfstate.dart';
-import 'package:colorlive/customwidgets/gallery_photoview_wrapper.dart';
-import 'package:colorlive/globalbasestate/store.dart';
-import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/enums/media_type.dart';
-import 'package:colorlive/models/firebase/firebase_accountstate.dart';
-import 'package:colorlive/models/imagemodel.dart';
-import 'package:palette_generator/palette_generator.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -55,7 +50,7 @@ Future _onInit(Action action, Context<TVDetailPageState> ctx) async {
     var f = await ApiHelper.getTVVideo(ctx.state.tvid);
     if (f != null) ctx.dispatch(TVDetailPageActionCreator.onSetVideos(f));
 
-    final _user = GlobalStore.store.getState().user;
+    final _user = null;
     if (_user != null) {
       var accountstate = await BaseApi.getAccountState(
           _user.uid, ctx.state.tvid, MediaType.tv);

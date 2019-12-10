@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/base_api_model/user_list.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 
 class MyListsPageState implements GlobalBaseState, Cloneable<MyListsPageState> {
   String accountId;
@@ -22,7 +21,6 @@ class MyListsPageState implements GlobalBaseState, Cloneable<MyListsPageState> {
       ..animationController = animationController
       ..cellAnimationController = cellAnimationController
       ..listkey = listkey
-      ..user = user
       ..listData = listData;
   }
 
@@ -32,8 +30,8 @@ class MyListsPageState implements GlobalBaseState, Cloneable<MyListsPageState> {
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+ /* @override
+  FirebaseUser user;*/
 }
 
 MyListsPageState initState(Map<String, dynamic> args) {

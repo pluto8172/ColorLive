@@ -1,15 +1,12 @@
+import 'dart:ui' as ui;
+
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:colorlive/actions/Adapt.dart';
+import 'package:colorlive/customwidgets/shimmercell.dart';
+import 'package:colorlive/models/base_api_model/user_list.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:colorlive/actions/Adapt.dart';
-import 'package:colorlive/actions/imageurl.dart';
-import 'package:colorlive/customwidgets/shimmercell.dart';
-import 'package:colorlive/models/base_api_model/user_list.dart';
-import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/mylistmodel.dart';
-import 'dart:ui' as ui;
 
 import 'action.dart';
 import 'state.dart';

@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
 import 'package:colorlive/actions/base_api.dart';
 import 'package:colorlive/actions/imageurl.dart';
 import 'package:colorlive/customwidgets/custom_stfstate.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'package:palette_generator/palette_generator.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -26,7 +26,7 @@ Future _onInit(Action action, Context<FavoritesPageState> ctx) async {
   ctx.state.animationController =
       AnimationController(vsync: ticker, duration: Duration(milliseconds: 600));
 
-  if (ctx.state.user != null) {
+  /*if (ctx.state.user != null) {
     final movie = await BaseApi.getFavorite(ctx.state.user.uid, 'movie');
     if (movie != null) ctx.state.animationController.forward(from: 0.0);
     ctx.dispatch(
@@ -34,7 +34,7 @@ Future _onInit(Action action, Context<FavoritesPageState> ctx) async {
     ctx.dispatch(FavoritesPageActionCreator.setMovie(movie));
     final tv = await BaseApi.getFavorite(ctx.state.user.uid, 'movie');
     if (tv != null) ctx.dispatch(FavoritesPageActionCreator.setTVShow(tv));
-  }
+  }*/
 }
 
 void _onDispose(Action action, Context<FavoritesPageState> ctx) {

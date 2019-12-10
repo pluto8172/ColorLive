@@ -1,18 +1,14 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'package:colorlive/globalbasestate/state.dart';
-import 'package:colorlive/models/creditsmodel.dart';
 import 'package:colorlive/models/imagemodel.dart';
-import 'package:colorlive/models/keyword.dart';
 import 'package:colorlive/models/media_accountstatemodel.dart';
 import 'package:colorlive/models/moviedetail.dart';
 import 'package:colorlive/models/review.dart';
-import 'package:colorlive/models/videolist.dart';
 import 'package:colorlive/models/videomodel.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 class MovieDetailPageState
@@ -59,8 +55,8 @@ class MovieDetailPageState
   @override
   Locale locale;
 
-  @override
-  FirebaseUser user;
+  /*@override
+  FirebaseUser user;*/
 }
 
 MovieDetailPageState initState(Map<String, dynamic> args) {

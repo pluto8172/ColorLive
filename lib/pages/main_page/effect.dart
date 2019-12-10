@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fish_redux/fish_redux.dart';
-import 'package:colorlive/globalbasestate/action.dart';
-import 'package:colorlive/globalbasestate/store.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -15,9 +13,9 @@ Effect<MainPageState> buildEffect() {
 void _onAction(Action action, Context<MainPageState> ctx) {}
 
 void _onInit(Action action, Context<MainPageState> ctx) async {
-  var _user = await FirebaseAuth.instance.currentUser();
+  /*var _user = await FirebaseAuth.instance.currentUser();
   if (_user != null){
     GlobalStore.store.dispatch(GlobalActionCreator.setUser(_user));
-  }
+  }*/
 
 }

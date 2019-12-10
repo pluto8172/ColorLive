@@ -17,7 +17,7 @@ Widget buildView(
             controller: state.nameTextController,
             cursorColor: Colors.grey,
             decoration: InputDecoration(
-              enabled: state.listData == null,
+              enabled: false,
               border: OutlineInputBorder(),
               labelText: 'ListName',
               focusedBorder: OutlineInputBorder(

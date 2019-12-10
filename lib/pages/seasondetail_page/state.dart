@@ -1,11 +1,10 @@
 import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:colorlive/globalbasestate/state.dart';
 import 'package:colorlive/models/episodemodel.dart';
 import 'package:colorlive/models/seasondetail.dart';
+import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'components/seasoncast_component/state.dart';
 
@@ -37,8 +36,8 @@ class SeasonDetailPageState
   @override
   Locale locale;
 
-  @override
-  FirebaseUser user;
+ /* @override
+  FirebaseUser user;*/
 }
 
 SeasonDetailPageState initState(Map<String, dynamic> args) {

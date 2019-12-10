@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fish_redux/fish_redux.dart';
 import 'package:colorlive/models/enums/streamlink_type.dart';
+import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
 enum AddLinkPageAction {
@@ -33,7 +32,7 @@ class AddLinkPageActionCreator {
     return Action(AddLinkPageAction.setStreamLink, payload: s);
   }
 
-  static Action setLinkData(DocumentSnapshot linkData) {
+  /*static Action setLinkData(DocumentSnapshot linkData) {
     return Action(AddLinkPageAction.setLinkData, payload: linkData);
-  }
+  }*/
 }

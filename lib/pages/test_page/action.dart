@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
@@ -9,9 +8,9 @@ class TestPageActionCreator {
     return const Action(TestPageAction.action);
   }
 
-  static Action setData(Stream<QuerySnapshot> d) {
+  /*static Action setData(Stream<QuerySnapshot> d) {
     return Action(TestPageAction.setData, payload: d);
-  }
+  }*/
 
   static Action googleSignIn() {
     return const Action(TestPageAction.googleSignIn);

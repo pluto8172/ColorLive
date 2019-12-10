@@ -1,11 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/widgets.dart' hide Action;
-import 'package:colorlive/actions/base_api.dart';
-import 'package:colorlive/actions/pop_result.dart';
-import 'package:colorlive/globalbasestate/action.dart';
-import 'package:colorlive/globalbasestate/store.dart';
 import 'package:toast/toast.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -36,7 +32,7 @@ void _onRegisterWithEmail(Action action, Context<RegisterPageState> ctx) async {
     Toast.show('Please enter all information', ctx.context,
         duration: 3, gravity: Toast.BOTTOM);
   } else {
-    try {
+    /*try {
       ctx.state.submitAnimationController.forward();
       final FirebaseAuth _auth = FirebaseAuth.instance;
       final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
@@ -63,6 +59,6 @@ void _onRegisterWithEmail(Action action, Context<RegisterPageState> ctx) async {
     } on Exception catch (e) {
       ctx.state.submitAnimationController.reverse();
       Toast.show(e.toString(), ctx.context, duration: 3, gravity: Toast.BOTTOM);
-    }
+    }*/
   }
 }

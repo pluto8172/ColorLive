@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:colorlive/globalbasestate/state.dart';
+import 'package:colorlive/models/base_api_model/user_media.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:colorlive/globalbasestate/state.dart';
-import 'package:colorlive/models/base_api_model/user_media.dart';
-import 'package:colorlive/models/videolist.dart';
 
 class WatchlistPageState
     implements GlobalBaseState, Cloneable<WatchlistPageState> {
@@ -25,8 +22,8 @@ class WatchlistPageState
       ..swiperController = swiperController
       ..isMovie = isMovie
       ..movies = movies
-      ..tvshows = tvshows
-      ..user = user;
+      ..tvshows = tvshows;
+     // ..user = user;
   }
 
   @override
@@ -35,8 +32,8 @@ class WatchlistPageState
   @override
   Color themeColor;
 
-  @override
-  FirebaseUser user;
+ /* @override
+  FirebaseUser user;*/
 }
 
 WatchlistPageState initState(Map<String, dynamic> args) {

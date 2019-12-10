@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:colorlive/globalbasestate/state.dart';
+import 'package:colorlive/models/base_api_model/user_media.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:colorlive/globalbasestate/state.dart';
-import 'package:colorlive/models/base_api_model/user_media.dart';
-import 'package:colorlive/models/videolist.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 class FavoritesPageState
@@ -31,8 +28,7 @@ class FavoritesPageState
       ..paletteGenerator = paletteGenerator
       ..isMovie = isMovie
       ..movies = movies
-      ..tvshows = tvshows
-      ..user = user;
+      ..tvshows = tvshows;
   }
 
   @override
@@ -40,9 +36,6 @@ class FavoritesPageState
 
   @override
   Color themeColor;
-
-  @override
-  FirebaseUser user;
 }
 
 FavoritesPageState initState(Map<String, dynamic> args) {

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fish_redux/fish_redux.dart';
 
 import 'action.dart';
@@ -19,8 +18,8 @@ StreamLinksPageState _onAction(StreamLinksPageState state, Action action) {
 }
 
 StreamLinksPageState _setSnapshot(StreamLinksPageState state, Action action) {
-  final Stream<QuerySnapshot> _snapshot = action.payload;
   final StreamLinksPageState newState = state.clone();
-  newState.snapshot = _snapshot;
+  /*final Stream<QuerySnapshot> _snapshot = action.payload;
+  newState.snapshot = _snapshot;*/
   return newState;
 }

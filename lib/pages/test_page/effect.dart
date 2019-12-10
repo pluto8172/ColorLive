@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:fish_redux/fish_redux.dart';
+
 import 'action.dart';
 import 'state.dart';
 
@@ -16,19 +14,19 @@ Effect<TestPageState> buildEffect() {
 
 void _onAction(Action action, Context<TestPageState> ctx) {}
 void _onInit(Action action, Context<TestPageState> ctx) {
-  final s = Firestore.instance
+ /* final s = Firestore.instance
       .collection("SteamLinks")
       //.where('name', isEqualTo: 'kk')
       .snapshots();
-  ctx.dispatch(TestPageActionCreator.setData(s));
+  ctx.dispatch(TestPageActionCreator.setData(s));*/
 }
 
 void _inputTapped(Action action, Context<TestPageState> ctx) {
-  Firestore.instance.collection("SteamLinks").add({'name': 'li', 'value': 12});
+  //Firestore.instance.collection("SteamLinks").add({'name': 'li', 'value': 12});
 }
 
 void _onGoogleSingeIn(Action action, Context<TestPageState> ctx) async {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  /*final FirebaseAuth _auth = FirebaseAuth.instance;
   GoogleSignIn _googleSignIn = GoogleSignIn();
   final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
   final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
@@ -43,5 +41,5 @@ void _onGoogleSingeIn(Action action, Context<TestPageState> ctx) async {
   assert(await user.getIdToken() != null);
 
   final FirebaseUser currentUser = await _auth.currentUser();
-  assert(user.uid == currentUser.uid);
+  assert(user.uid == currentUser.uid);*/
 }
