@@ -1,4 +1,4 @@
-package com.o1298098.flutter_movie
+package com.plout.flutter_movie
 
 import android.os.Bundle
 

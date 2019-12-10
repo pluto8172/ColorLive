@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:472468283055:android:eb726e8040fcea6f01fe5a",
         "android_client_info": {
-          "package_name": "com.o1298098.movie"
+          "package_name": "com.plout.colorlive"
         }
       },
       "oauth_client": [
@@ -35,7 +35,7 @@
               "client_id": "472468283055-4qjn08fpkfnqbhkji92u1059j51tgsqd.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.o1298098.movie"
+                "bundle_id": "com.plout.colorlive"
               }
             }
           ]

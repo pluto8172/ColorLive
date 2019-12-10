@@ -55,8 +55,8 @@ Future _init() async {
     ApiHelper.session = session;
   }
   if (accessToken != null) ApiHelper.accessTokenV4 = accessToken;*/
-  setLocaleInfo('zh', TimelineInfoCN());
-  setLocaleInfo('en', TimelineInfoEN());
+  //setLocaleInfo('zh', TimelineInfoCN());
+  //setLocaleInfo('en', TimelineInfoEN());
 }
 
 Future<Widget> createApp() async {
@@ -146,7 +146,7 @@ Future<Widget> createApp() async {
 
   I18n.onLocaleChanged = onLocaleChanged;
   return MaterialApp(
-    title: 'Movie',
+    title: 'ColorLive',
     debugShowCheckedModeBanner: false,
     theme: _lightTheme,
     darkTheme: _darkTheme,
@@ -157,8 +157,7 @@ Future<Widget> createApp() async {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: I18n.delegate.supportedLocales,
-    localeResolutionCallback:
-        I18n.delegate.resolution(fallback: new Locale("en", "US")),
+    localeResolutionCallback: I18n.delegate.resolution(fallback: new Locale("zh", "CN")),
     home: routes.buildPage('mainpage', {
       'pages': [
         routes.buildPage('homePage', null),

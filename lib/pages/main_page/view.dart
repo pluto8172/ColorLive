@@ -14,16 +14,18 @@ Widget buildView(MainPageState state, Dispatch dispatch, ViewService viewService
       final _lightTheme = ThemeData.light().copyWith(
           backgroundColor: Colors.white,
           tabBarTheme: TabBarTheme(
-              labelColor: Color(0XFF505050),
+              labelColor: Colors.green,
               unselectedLabelColor: Colors.grey));
       final _darkTheme = ThemeData.dark().copyWith(
           backgroundColor: Color(0xFF303030),
           tabBarTheme: TabBarTheme(labelColor: Colors.white, unselectedLabelColor: Colors.grey));
       final MediaQueryData _mediaQuery = MediaQuery.of(context);
-      final ThemeData _theme =
+     /* final ThemeData _theme =
           _mediaQuery.platformBrightness == Brightness.light
               ? _lightTheme
-              : _darkTheme;
+              : _darkTheme;*/
+
+      final ThemeData _theme = _lightTheme;
       Widget _buildPage(Widget page) {
         return KeepAliveWidget(page);
       }
