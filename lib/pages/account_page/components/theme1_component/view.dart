@@ -9,8 +9,7 @@ import '../../action.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(
-    Theme1State state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(Theme1State state, Dispatch dispatch, ViewService viewService) {
   Widget _buildTapCell(String name, double begin, double end, void ontap()) {
     return SlideTransition(
       position: Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)

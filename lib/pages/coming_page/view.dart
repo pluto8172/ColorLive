@@ -1,15 +1,9 @@
-import 'dart:math';
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:colorlive/actions/Adapt.dart';
-import 'package:colorlive/actions/imageurl.dart';
-import 'package:colorlive/customwidgets/keepalive_widget.dart';
 import 'package:colorlive/generated/i18n.dart';
-import 'package:colorlive/models/enums/genres.dart';
-import 'package:colorlive/models/enums/imagesize.dart';
-import 'package:colorlive/models/videolist.dart';
+import 'package:colorlive/config/resources.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -30,7 +24,7 @@ Widget buildView(
         ? _lightTheme
         : _darkTheme;
     return DefaultTabController(
-      length: 2,
+      length: 6,
       child: Scaffold(
           appBar: AppBar(
             brightness: _theme.brightness,
@@ -49,23 +43,44 @@ Widget buildView(
               labelStyle: TextStyle(
                   fontSize: Adapt.px(35), fontWeight: FontWeight.bold),
               unselectedLabelStyle: TextStyle(color: Colors.grey),
+              isScrollable: true,
               tabs: <Widget>[
-                Tab(
-                  text: I18n.of(viewService.context).movies,
-                ),
-                Tab(
-                  text: I18n.of(viewService.context).tvShows,
-                )
+                Tab(text: I18n.of(viewService.context).movies),
+                Tab(text: I18n.of(viewService.context).tvShows),
+                Tab(text: RString.tabText1),
+                Tab(text: RString.tabText2),
+                Tab(text: RString.tabText3),
+                Tab(text: RString.tabText4),
               ],
             )),
             backgroundColor: _theme.backgroundColor,
             elevation: 0.0,
           ),
           body: TabBarView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: AlwaysScrollableScrollPhysics(),
             children: <Widget>[
               viewService.buildComponent('movielist'),
               viewService.buildComponent('tvlist'),
+              Center(
+                child: Container(
+                  child: Text("动漫"),
+                ),
+              ),
+              Center(
+                child: Container(
+                  child: Text("体育"),
+                ),
+              ),
+              Center(
+                child: Container(
+                  child: Text("资讯"),
+                ),
+              ),
+              Center(
+                child: Container(
+                  child: Text("纪录片"),
+                ),
+              ),
             ],
           )),
     );

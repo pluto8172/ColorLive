@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:colorlive/models/videolist.dart';
 
-//TODO replace with your own action
+/// replace with your own action
 enum ComingPageAction { action, initMoviesComing,loadMore, initTVComing ,filterChanged}
 
 class ComingPageActionCreator {
