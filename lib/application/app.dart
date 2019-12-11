@@ -32,7 +32,6 @@ import 'package:colorlive/pages/tvdetail_page/page.dart';
 import 'package:colorlive/pages/watchlist_page/page.dart';
 import 'package:colorlive/pages/watchlistdetail_page/page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../actions/timeline.dart';
 import '../generated/i18n.dart';
 import '../globalbasestate/state.dart';
 import '../globalbasestate/store.dart';
@@ -43,7 +42,9 @@ import 'package:colorlive/pages/detail_page/page.dart' as detail;
 
 Future _init() async {
   if (Platform.isAndroid)
-    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.contacts]);
+    Map<PermissionGroup, PermissionStatus> permissions =
+        await PermissionHandler()
+            .requestPermissions([PermissionGroup.contacts]);
   /*SharedPreferences prefs = await SharedPreferences.getInstance();
   var session = prefs.getString('loginsession');
   String accessToken = prefs.getString('accessTokenV4');
@@ -92,9 +93,11 @@ Future<Widget> createApp() async {
     },
     visitor: (String path, Page<Object, dynamic> page) {
       if (page.isTypeof<GlobalBaseState>()) {
-        page.connectExtraStore<GlobalState>(GlobalStore.store, (Object pagestate, GlobalState appState) {
+        page.connectExtraStore<GlobalState>(GlobalStore.store,
+            (Object pagestate, GlobalState appState) {
           final GlobalBaseState p = pagestate;
-          if (p.themeColor != appState.themeColor || p.locale != appState.locale ){
+          if (p.themeColor != appState.themeColor ||
+              p.locale != appState.locale) {
             if (pagestate is Cloneable) {
               final Object copy = pagestate.clone();
               final GlobalBaseState newState = copy;
@@ -151,7 +154,8 @@ Future<Widget> createApp() async {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: I18n.delegate.supportedLocales,
-    localeResolutionCallback: I18n.delegate.resolution(fallback: new Locale("zh", "CN")),
+    localeResolutionCallback:
+        I18n.delegate.resolution(fallback: new Locale("zh", "CN")),
     home: routes.buildPage('mainpage', {
       'pages': [
         routes.buildPage('homePage', null),
