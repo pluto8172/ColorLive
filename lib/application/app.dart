@@ -43,9 +43,7 @@ import 'package:colorlive/pages/detail_page/page.dart' as detail;
 
 Future _init() async {
   if (Platform.isAndroid)
-    Map<PermissionGroup, PermissionStatus> permissions =
-        await PermissionHandler()
-            .requestPermissions([PermissionGroup.contacts]);
+    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.contacts]);
   /*SharedPreferences prefs = await SharedPreferences.getInstance();
   var session = prefs.getString('loginsession');
   String accessToken = prefs.getString('accessTokenV4');
