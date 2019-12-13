@@ -9,7 +9,6 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/imageurl.dart';
-import 'package:colorlive/customwidgets/backdrop.dart';
 import 'package:colorlive/customwidgets/shimmercell.dart';
 import 'package:colorlive/generated/i18n.dart';
 import 'package:colorlive/models/enums/imagesize.dart';

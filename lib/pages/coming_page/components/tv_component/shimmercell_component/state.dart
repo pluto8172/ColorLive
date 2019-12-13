@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 
+//会像光栅扫描一样显示的控件
 class ShimmerCellState implements Cloneable<ShimmerCellState> {
 bool showShimmer;
 

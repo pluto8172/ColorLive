@@ -4,13 +4,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:colorlive/actions/Adapt.dart';
 import 'package:colorlive/actions/imageurl.dart';
 import 'package:colorlive/customwidgets/scrollview_background.dart';
 import 'package:colorlive/customwidgets/shimmercell.dart';
-import 'package:colorlive/customwidgets/sliverappbar_delegate.dart';
 import 'package:colorlive/generated/i18n.dart';
 import 'package:colorlive/models/creditsmodel.dart';
 import 'package:colorlive/models/enums/imagesize.dart';
@@ -125,6 +123,10 @@ Widget buildView(
           : Container();
     }
 
+    Widget _getTextWidget() {
+      return Container();
+    }
+
     Widget _getExternal() {
       var _detail = state.detail;
       var _ids = _detail.externalids;
@@ -139,9 +141,7 @@ Widget buildView(
             ),
             _buildExternalCell('images/twitter_circle.png',
                 'https://twitter.com/', _ids.twitterId),
-            SizedBox(
-              width: Adapt.px(10),
-            ),
+            SizedBox(width: Adapt.px(10)),
             _buildExternalCell('images/instagram_circle.png',
                 'https://www.instagram.com/', _ids.instagramId),
             SizedBox(

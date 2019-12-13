@@ -8,13 +8,14 @@ import 'state.dart';
 Effect<ComingPageState> buildEffect() {
   return combineEffects(<Object, Effect<ComingPageState>>{
     ComingPageAction.action: _onAction,
-    Lifecycle.initState: _onInit,
-    Lifecycle.dispose: _onDispose
+    Lifecycle.initState: _onInit, // 初始化
+    Lifecycle.dispose: _onDispose // 销毁
   });
 }
 
 void _onAction(Action action, Context<ComingPageState> ctx) {}
 
+//初始化页面数据，从服务器获取数据
 Future _onInit(Action action, Context<ComingPageState> ctx) async {
   ctx.state.movieController = new ScrollController()
     ..addListener(() async {
@@ -32,6 +33,7 @@ Future _onInit(Action action, Context<ComingPageState> ctx) async {
         await _onLoadMore(action, ctx);
       }
     });
+  //获取电影列表数据
   var q = await ApiHelper.getMovieUpComing();
   if (q != null) ctx.dispatch(ComingPageActionCreator.onInitMoviesComing(q));
   var t = await ApiHelper.getTVOnTheAir();

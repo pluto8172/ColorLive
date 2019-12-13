@@ -13,12 +13,10 @@ Widget buildView(
   return Builder(builder: (context) {
     final _lightTheme = ThemeData.light().copyWith(
         backgroundColor: Colors.white,
-        tabBarTheme: TabBarTheme(
-            labelColor: Colors.black, unselectedLabelColor: Colors.grey));
+        tabBarTheme: TabBarTheme(labelColor: Colors.black, unselectedLabelColor: Colors.grey));
     final _darkTheme = ThemeData.dark().copyWith(
         backgroundColor: Color(0xFF303030),
-        tabBarTheme: TabBarTheme(
-            labelColor: Colors.white, unselectedLabelColor: Colors.grey));
+        tabBarTheme: TabBarTheme( labelColor: Colors.white, unselectedLabelColor: Colors.grey));
     final MediaQueryData _mediaQuery = MediaQuery.of(context);
     final ThemeData _theme = _mediaQuery.platformBrightness == Brightness.light
         ? _lightTheme
@@ -30,18 +28,17 @@ Widget buildView(
             brightness: _theme.brightness,
             title: Container(
                 child: TabBar(
-              onTap: (i) {
-                if (i == 0)
-                  dispatch(ComingPageActionCreator.onFilterChanged(true));
-                else
-                  dispatch(ComingPageActionCreator.onFilterChanged(false));
-              },
+                onTap: (i) {
+                  if (i == 0)
+                    dispatch(ComingPageActionCreator.onFilterChanged(true));
+                  else
+                    dispatch(ComingPageActionCreator.onFilterChanged(false));
+                },
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: _theme.tabBarTheme.labelColor,
               labelColor: _theme.tabBarTheme.labelColor,
               unselectedLabelColor: _theme.tabBarTheme.unselectedLabelColor,
-              labelStyle: TextStyle(
-                  fontSize: Adapt.px(35), fontWeight: FontWeight.bold),
+              labelStyle: TextStyle( fontSize: Adapt.px(35), fontWeight: FontWeight.bold),
               unselectedLabelStyle: TextStyle(color: Colors.grey),
               isScrollable: true,
               tabs: <Widget>[
@@ -59,8 +56,8 @@ Widget buildView(
           body: TabBarView(
             physics: AlwaysScrollableScrollPhysics(),
             children: <Widget>[
-              viewService.buildComponent('movielist'),
-              viewService.buildComponent('tvlist'),
+              viewService.buildComponent('movielist'), // 电影列表布局
+              viewService.buildComponent('tvlist'),    // 电视剧列表布局
               Center(
                 child: Container(
                   child: Text("动漫"),

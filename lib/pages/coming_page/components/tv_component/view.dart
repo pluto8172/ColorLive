@@ -7,10 +7,8 @@ import 'package:colorlive/customwidgets/keepalive_widget.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(
-    TVListState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView( TVListState state, Dispatch dispatch, ViewService viewService) {
   var adapter = viewService.buildAdapter();
-
   return keepAliveWrapper(AnimatedSwitcher(
       duration: Duration(milliseconds: 600),
       child: ListView.builder(

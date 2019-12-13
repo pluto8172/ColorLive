@@ -15,8 +15,7 @@ class MovieCellsState implements Cloneable<MovieCellsState> {
 MovieCellsState initMoviceCellsState(Map<String, dynamic> args) {
   return MovieCellsState();
 }
-class MovieCellsConnector
-    extends ConnOp<HomePageState, MovieCellsState> {
+class MovieCellsConnector extends ConnOp<HomePageState, MovieCellsState> {
   @override
   MovieCellsState get(HomePageState state) {
     MovieCellsState mstate = MovieCellsState();

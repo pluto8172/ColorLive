@@ -377,7 +377,7 @@ class ApiHelper {
 
   static Future<bool> rateMovie(int movieid, double rating) async {
     bool result = false;
-    String param = '/colorlive/$movieid/rating?api_key=$_apikey';
+    String param = '/movie/$movieid/rating?api_key=$_apikey';
     int accountid = prefs.getInt('accountid');
     if (accountid == null)
       //param += '&guest_session_id=$session';
@@ -409,7 +409,7 @@ class ApiHelper {
 
   static Future<CertificationModel> getMovieCertifications() async {
     CertificationModel certificationModel;
-    String param = '/certification/colorlive/list';
+    String param = '/certification/movie/list';
     var r = await httpGet(param);
     if (r != null) {
       certificationModel = CertificationModel(r);
@@ -429,7 +429,7 @@ class ApiHelper {
 
   static Future<VideoListResult> getLastMovies() async {
     VideoListResult model;
-    String param = "/colorlive/latest?api_key=$_apikey&language=$language";
+    String param = "/movie/latest?api_key=$_apikey&language=$language";
     var r = await httpGet(param);
     if (r != null) model = VideoListResult.fromJson(r);
     return model;
@@ -446,7 +446,7 @@ class ApiHelper {
   static Future<VideoListModel> getPopularMovies({int page = 1}) async {
     VideoListModel model;
     String param =
-        "/colorlive/popular?api_key=$_apikey&language=$language&page=$page";
+        "/movie/popular?api_key=$_apikey&language=$language&page=$page";
     var r = await httpGet(param);
     if (r != null) model = VideoListModel(r);
     return model;
@@ -463,7 +463,7 @@ class ApiHelper {
   static Future<MovieDetailModel> getMovieDetail(int mvid,
       {String appendtoresponse}) async {
     MovieDetailModel model;
-    String param = '/colorlive/$mvid?api_key=$_apikey&language=$language';
+    String param = '/movie/$mvid?api_key=$_apikey&language=$language';
     if (appendtoresponse != null)
       param = param + '&append_to_response=$appendtoresponse';
     var r = await httpGet(param);
@@ -501,7 +501,7 @@ class ApiHelper {
       int movieid) async {
     MediaAccountStateModel model;
     String param =
-        '/colorlive/$movieid/account_states?api_key=$_apikey&language=$language';
+        '/movie/$movieid/account_states?api_key=$_apikey&language=$language';
     int accountid = prefs.getInt('accountid');
     if (accountid != null)
       param += '&session_id=$session';
@@ -512,11 +512,11 @@ class ApiHelper {
     return model;
   }
 
-  ///Get a list of all of the colorlive ids that have been changed in the past 24 hours.You can query it for up to 14 days worth of changed IDs at a time with the start_date and end_date query parameters. 100 items are returned per page.
+  ///Get a list of all of the movie ids that have been changed in the past 24 hours.You can query it for up to 14 days worth of changed IDs at a time with the start_date and end_date query parameters. 100 items are returned per page.
   static Future<MovieChangeModel> getMovieChange(
       {int page = 1, String startdate, String enddate}) async {
     MovieChangeModel model;
-    String param = '/colorlive/changes?api_key=$_apikey&page=$page';
+    String param = '/movie/changes?api_key=$_apikey&page=$page';
     if (startdate != null && enddate == null)
       param = param + '&start_date=$enddate&start_date=$startdate';
     var r = await httpGet(param);
@@ -527,19 +527,16 @@ class ApiHelper {
   ///Get a list of upcoming movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.You can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country.
   static Future<VideoListModel> getMovieUpComing({int page = 1}) async {
     VideoListModel model;
-    String param =
-        '/colorlive/upcoming?api_key=$_apikey&language=$language&page=$page&region=$region';
+    String param ='/movie/upcoming?api_key=$_apikey&language=$language&page=$page&region=$region';
     var r = await httpGet(param);
     if (r != null) model = VideoListModel(r);
     return model;
   }
 
   ///Get the daily or weekly trending items. The daily trending list tracks items over the period of a day while items have a 24 hour half life. The weekly list tracks items over a 7 day period, with a 7 day half life.
-  static Future<SearchResultModel> getTrending(MediaType type, TimeWindow time,
-      {int page = 1}) async {
+  static Future<SearchResultModel> getTrending(MediaType type, TimeWindow time, {int page = 1}) async {
     SearchResultModel model;
-    String param =
-        '/trending/${type.toString().split('.').last}/${time.toString().split('.').last}?api_key=$_apikey&language=$language&page=$page';
+    String param = '/trending/${type.toString().split('.').last}/${time.toString().split('.').last}?api_key=$_apikey&language=$language&page=$page';
     var r = await httpGet(param);
     if (r != null) model = SearchResultModel(r);
     return model;
@@ -548,8 +545,7 @@ class ApiHelper {
   ///Get a list of movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.You can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country.
   static Future<VideoListModel> getNowPlayingMovie({int page = 1}) async {
     VideoListModel model;
-    String param =
-        '/colorlive/now_playing?api_key=$_apikey&language=$language&page=$page&region=$region';
+    String param = '/movie/now_playing?api_key=$_apikey&language=$language&page=$page&region=$region';
     var r = await httpGet(param);
     if (r != null) model = VideoListModel(r);
     return model;
@@ -559,7 +555,7 @@ class ApiHelper {
       {int page = 1}) async {
     VideoListModel model;
     String param =
-        '/colorlive/$movieid/recommendations?api_key=$_apikey&language=$language&page=$page';
+        '/movie/$movieid/recommendations?api_key=$_apikey&language=$language&page=$page';
     var r = await httpGet(param);
     if (r != null) model = VideoListModel(r);
     return model;
@@ -575,10 +571,10 @@ class ApiHelper {
     return model;
   }
 
-  ///Get the videos that have been added to a colorlive.
+  ///Get the videos that have been added to a movie.
   static Future<VideoModel> getMovieVideo(int movieid) async {
     VideoModel model;
-    String param = '/colorlive/$movieid/videos?api_key=$_apikey';
+    String param = '/movie/$movieid/videos?api_key=$_apikey';
     var r = await httpGet(param);
     if (r != null) model = VideoModel(r);
     return model;
@@ -613,11 +609,11 @@ class ApiHelper {
     return model;
   }
 
-  ///Get the cast and crew for a colorlive.
+  ///Get the cast and crew for a movie.
   static Future<CreditsModel> getMovieCredits(int movieid) async {
     CreditsModel model;
     String param =
-        '/colorlive/$movieid/credits?api_key=$_apikey&language=$language';
+        '/movie/$movieid/credits?api_key=$_apikey&language=$language';
     var r = await httpGet(param);
     if (r != null) model = CreditsModel(r);
     return model;
@@ -631,11 +627,11 @@ class ApiHelper {
     return model;
   }
 
-  ///Get the user reviews for a colorlive.
+  ///Get the user reviews for a movie.
   static Future<ReviewModel> getMovieReviews(int movieid,
       {int page = 1}) async {
     ReviewModel model;
-    String param = '/colorlive/$movieid/reviews?api_key=$_apikey&page=$page';
+    String param = '/movie/$movieid/reviews?api_key=$_apikey&page=$page';
     var r = await httpGet(param);
     if (r != null) model = ReviewModel(r);
     return model;
@@ -649,11 +645,11 @@ class ApiHelper {
     return model;
   }
 
-  ///Get the images that belong to a colorlive.Querying images with a language parameter will filter the results. If you want to include a fallback language (especially useful for backdrops) you can use the include_image_language parameter. This should be a comma seperated value like so: include_image_language=en,null.
+  ///Get the images that belong to a movie.Querying images with a language parameter will filter the results. If you want to include a fallback language (especially useful for backdrops) you can use the include_image_language parameter. This should be a comma seperated value like so: include_image_language=en,null.
   static Future<ImageModel> getMovieImages(int movieid,
       {String includelan = 'en,cn,jp'}) async {
     ImageModel model;
-    String param = '/colorlive/$movieid/images?api_key=$_apikey';
+    String param = '/movie/$movieid/images?api_key=$_apikey';
     var r = await httpGet(param);
     if (r != null) model = ImageModel(r);
     return model;
@@ -668,10 +664,10 @@ class ApiHelper {
     return model;
   }
 
-  ///Get the keywords that have been added to a colorlive.
+  ///Get the keywords that have been added to a movie.
   static Future<KeyWordModel> getMovieKeyWords(int moiveid) async {
     KeyWordModel model;
-    String param = '/colorlive/$moiveid/keywords?api_key=$_apikey';
+    String param = '/movie/$moiveid/keywords?api_key=$_apikey';
     var r = await httpGet(param);
     if (r != null) model = KeyWordModel(r);
     return model;
@@ -720,7 +716,7 @@ class ApiHelper {
       String withoutKeywords}) async {
     VideoListModel model;
     String param =
-        '/discover/colorlive?api_key=$_apikey&page=$page&language=$language';
+        '/discover/movie?api_key=$_apikey&page=$page&language=$language';
     param += sortBy == null ? '' : '&sort_by=$sortBy';
     param += certification == null ? '' : '&certification=$certification';
     param += certificationCountry == null
@@ -805,7 +801,7 @@ class ApiHelper {
       int primaryReleaseYear}) async {
     VideoListModel model;
     String param =
-        '/search/colorlive?api_key=$_apikey&page=$page&include_adult=$includeAdult';
+        '/search/movie?api_key=$_apikey&page=$page&include_adult=$includeAdult';
     param += region == null ? '' : '&region=$region';
     param += year == null ? '' : '&year=$year';
     param += primaryReleaseYear == null
@@ -870,10 +866,7 @@ class ApiHelper {
     return model;
   }
 
-  static Future<Object> httpGet(String param,
-      {bool cached = true,
-      cacheDuration = const Duration(days: 1),
-      maxStale = const Duration(days: 30)}) async {
+  static Future<Object> httpGet(String param, {bool cached = true, cacheDuration = const Duration(days: 1), maxStale = const Duration(days: 30)}) async {
     try {
       if (_appDocPath == null) {
         await getCookieDir();
@@ -881,16 +874,14 @@ class ApiHelper {
       var dio = new Dio();
       if (cached)
         dio.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
-      var response = await dio.get(
-        _apihost + param,
-        options: buildCacheOptions(
+      var response = await dio.get(  _apihost + param, options: buildCacheOptions(
           cacheDuration,
           maxStale: maxStale,
         ),
       );
       return response.data;
     } on DioError catch (e) {
-      return null;
+      return e.message;
     }
   }
 

@@ -10,8 +10,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(
-    MovieCellsState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(MovieCellsState state, Dispatch dispatch, ViewService viewService) {
   Widget _bulidcell(VideoListResult d) {
     return GestureDetector(
       onTap: ()=>dispatch(MovieCellsActionCreator.onCellTapped(d.id,d.backdrop_path,d.title,d.poster_path)),

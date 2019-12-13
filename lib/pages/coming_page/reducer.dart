@@ -22,8 +22,7 @@ ComingPageState _onAction(ComingPageState state, Action action) {
 }
 
 ComingPageState _onInitMoviesComing(ComingPageState state, Action action) {
-  final VideoListModel q = action.payload ??
-      VideoListModel.fromParams(results: List<VideoListResult>());
+  final VideoListModel q = action.payload ?? VideoListModel.fromParams(results: List<VideoListResult>());
   final ComingPageState newState = state.clone();
   newState.moviecoming = q;
   return newState;
